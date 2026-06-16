@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ---------- Testimonials: Filtering ---------- */
     const filterChips = document.querySelectorAll('#filterChips .chip');
-    const testimonialCards = document.querySelectorAll('#testimonialGrid .t-card');
+    const testimonialCards = document.querySelectorAll('#reviewsGrid .t-card');
     const showMoreBtn = document.getElementById('showMoreBtn');
     const VISIBLE_COUNT = 6;
 
@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (showMoreBtn) {
         showMoreBtn.addEventListener('click', () => {
-            document.querySelectorAll('#testimonialGrid .t-card.extra').forEach(card => {
+            document.querySelectorAll('#reviewsGrid .t-card.extra').forEach(card => {
                 card.classList.add('visible');
             });
             showMoreBtn.classList.add('hidden');

@@ -934,7 +934,7 @@ a {
 }
 
 /* ============================================
-   TESTIMONIALS
+   reviewsS
    ============================================ */
 
 .rating-summary {
@@ -1046,7 +1046,7 @@ a {
     color: var(--white);
 }
 
-.testimonials-masonry {
+.reviewss-masonry {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
@@ -2256,7 +2256,7 @@ body.lightbox-open {
     }
 
     .services-grid,
-    .testimonials-masonry,
+    .reviewss-masonry,
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2295,7 +2295,7 @@ body.lightbox-open {
     }
 
     .services-grid,
-    .testimonials-masonry,
+    .reviews-masonry,
     .gallery-grid {
         grid-template-columns: 1fr;
     }
