@@ -272,16 +272,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') lightboxStep(1);
     });
 
-    /* ---------- Testimonials: Filtering ---------- */
+    /* ---------- reviewss: Filtering ---------- */
     const filterChips = document.querySelectorAll('#filterChips .chip');
-    const testimonialCards = document.querySelectorAll('#reviewsGrid .t-card');
+    const reviewsCards = document.querySelectorAll('#reviewsGrid .t-card');
     const showMoreBtn = document.getElementById('showMoreBtn');
     const VISIBLE_COUNT = 6;
 
     function applyFilter(filter) {
         let visibleIndex = 0;
 
-        testimonialCards.forEach(card => {
+        reviewsCards.forEach(card => {
             const tags = (card.getAttribute('data-tags') || '').split(' ');
             const matches = filter === 'all' || tags.includes(filter);
 
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (showMoreBtn) {
-            const hasExtras = Array.from(testimonialCards).some(c => c.classList.contains('extra'));
+            const hasExtras = Array.from(reviewsCards).some(c => c.classList.contains('extra'));
             showMoreBtn.classList.toggle('hidden', !hasExtras);
             showMoreBtn.textContent = 'Show More Reviews \u2193';
         }
