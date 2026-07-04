@@ -80,48 +80,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ---------- Animated Stat Counters ---------- */
-    const statNumbers = document.querySelectorAll('.stat-num[data-target]');
+const statNumbers = document.querySelectorAll('.stat-num[data-target]');
 
-    function animateCount(el) {
-    const target = parseInt(el.getAttribute('data-target'), 10);
-    const duration = 1400;
-    const start = performance.now();
+/* ---------- Animated Stat Counters ---------- */
+function animateCount(el) {
+const target = Number(el.dataset.target);
+const duration = 1400;
+const start = performance.now();
 
-    function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(eased * target);
+function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(eased * target);
+    const formatted = current.toLocaleString('en-US');
 
-        if (progress < 1) {
-            requestAnimationFrame(tick);
-        } else {
-            el.textContent = target === 500 ? '500 +' : target;
-        }
-    }
+    el.textContent = formatted + '+';
 
+    if (progress < 1) {
     requestAnimationFrame(tick);
+    } else {
+    el.textContent = target.toLocaleString('en-US') + '+';
+    }
 }
 
-    // Set the static "5★" stat immediately
-    document.querySelectorAll('.stat-num[data-static]').forEach(el => {
-        el.textContent = el.getAttribute('data-static');
+requestAnimationFrame(tick);
+}
+
+// Set the static "5★" stat immediately
+document.querySelectorAll('.stat-num[data-static]').forEach(el => {
+el.textContent = el.getAttribute('data-static');
+});
+
+if (statNumbers.length && 'IntersectionObserver' in window) {
+const statsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+        animateCount(entry.target);
+        observer.unobserve(entry.target);
+}
     });
+}, { threshold: 0.4 });
 
-    if (statNumbers.length && 'IntersectionObserver' in window) {
-        const statsObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCount(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.4 });
-
-        statNumbers.forEach(el => statsObserver.observe(el));
-    } else {
-        statNumbers.forEach(animateCount);
-    }
+statNumbers.forEach(el => statsObserver.observe(el));
+} else {
+statNumbers.forEach(animateCount);
+}
 
     /* ---------- Gallery — 21 Images + Lightbox ---------- */
     const galleryGrid = document.getElementById('dogGallery');
