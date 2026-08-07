@@ -277,7 +277,7 @@ statNumbers.forEach(animateCount);
 
     /* ---------- reviewss: Filtering ---------- */
     const filterChips = document.querySelectorAll('#filterChips .chip');
-    const reviewsCards = document.querySelectorAll('#reviewsGrid .t-card');
+    const reviewsCards = document.querySelectorAll('#testimonialGrid .t-card');
     const showMoreBtn = document.getElementById('showMoreBtn');
     const VISIBLE_COUNT = 6;
 
@@ -318,7 +318,7 @@ statNumbers.forEach(animateCount);
 
     if (showMoreBtn) {
         showMoreBtn.addEventListener('click', () => {
-            document.querySelectorAll('#reviewsGrid .t-card.extra').forEach(card => {
+            document.querySelectorAll('#testimonialGrid .t-card.extra').forEach(card => {
                 card.classList.add('visible');
             });
             showMoreBtn.classList.add('hidden');
@@ -358,7 +358,7 @@ statNumbers.forEach(animateCount);
     const successMsg = document.getElementById('successMsg');
 
     if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
+        bookingForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             if (!bookingForm.checkValidity()) {
@@ -366,12 +366,43 @@ statNumbers.forEach(animateCount);
                 return;
             }
 
+            const submitButton = bookingForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+
             if (successMsg) {
-                successMsg.classList.add('visible');
-                successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                successMsg.classList.remove('visible', 'is-error');
             }
 
-            bookingForm.reset();
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending…';
+
+            try {
+                const response = await fetch(bookingForm.action, {
+                    method: 'POST',
+                    body: new FormData(bookingForm),
+                    headers: { Accept: 'application/json' }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Form submission failed');
+                }
+
+                bookingForm.reset();
+                if (successMsg) {
+                    successMsg.textContent = '✅ Thank you! We’ll be in touch shortly to confirm your booking.';
+                    successMsg.classList.add('visible');
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            } catch (error) {
+                if (successMsg) {
+                    successMsg.textContent = 'Sorry, we could not send your request. Please try again or contact us directly.';
+                    successMsg.classList.add('visible', 'is-error');
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
         });
     }
 

@@ -3,13 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K9 Design</title>
+    <title>K9 Design | Professional Dog Grooming in Galway</title>
+    <meta name="description" content="Gentle, premium dog grooming in Galway. Book baths, tidy-ups, full grooms and puppy introductions with K9 Design online.">
+    <link rel="canonical" href="https://k9design.ie/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://k9design.ie/">
+    <meta property="og:title" content="K9 Design | Professional Dog Grooming in Galway">
+    <meta property="og:description" content="Gentle, premium dog grooming in Galway. Book baths, tidy-ups, full grooms and puppy introductions online.">
+    <meta property="og:image" content="https://k9design.ie/assets/Images/k9_logo%20circle.png">
+    <meta property="og:image:alt" content="K9 Design Dog Grooming logo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="K9 Design | Professional Dog Grooming in Galway">
+    <meta name="twitter:description" content="Gentle, premium dog grooming in Galway. Book baths, tidy-ups, full grooms and puppy introductions online.">
+    <meta name="twitter:image" content="https://k9design.ie/assets/Images/k9_logo%20circle.png">
     <link rel="icon" type="image/png" href="assets/Images/favicon.ico">
     <link rel="apple-touch-icon" href="assets/Images/k9_logo circle.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "K9 Design Dog Grooming",
+        "description": "Professional, gentle, premium dog grooming in Galway.",
+        "url": "https://k9design.ie/",
+        "image": "https://k9design.ie/assets/Images/k9_logo%20circle.png",
+        "telephone": "+353852504673",
+        "email": "k9.design.grooming@gmail.com",
+        "priceRange": "€€",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Unit 2A, Old Dublin Road",
+            "addressLocality": "Galway",
+            "postalCode": "H91 W5KC",
+            "addressCountry": "IE"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "17:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "16:00"
+            }
+        ],
+        "sameAs": [
+            "https://www.facebook.com/k9design.ie/",
+            "https://www.instagram.com/k9design.ie/"
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -371,7 +421,6 @@
                     <div class="award-badge">🏅 International Training</div>
                     <div class="award-badge">✂️ Asian Fusion Specialist</div>
                     <div class="award-badge">🐶 IPDGA Member</div>
-                    <div class="award-badge">❤️ Fear-Free Certified</div>
                     <div class="award-badge">🐾 All Breeds Welcome</div>
                 </div>
                 <a href="https://book.itsallsavvy.com/?id=6728d70a1f6d6832ba0aa004&amp;bookingDefinitionId=6728d70c7456d0209ef2dcea" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a Session</a>
@@ -440,8 +489,9 @@
             <div class="booking-form-card">
                 <h3>✉️ Or Send a Request</h3>
                 <p class="form-intro">Prefer to message us first? Fill in your details and we'll confirm a slot that suits you.</p>
-                <div class="success-msg" id="successMsg">✅ Thank you! We'll be in touch shortly to confirm your booking.</div>
-                <form id="bookingForm">
+                <div class="success-msg" id="successMsg" role="status" aria-live="polite"></div>
+                <form id="bookingForm" action="https://formspree.io/f/mbgrlnla" method="POST">
+                    <input type="hidden" name="_subject" value="New K9 Design booking request">
                     <div class="form-row">
                         <div class="form-group"><label for="fname">First Name *</label><input type="text" id="fname" name="firstName" required placeholder="Seán"></div>
                         <div class="form-group"><label for="lname">Last Name *</label><input type="text" id="lname" name="lastName" required placeholder="Murphy"></div>
@@ -502,12 +552,12 @@
 
 <section class="map-section">
     <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2388.2!2d-9.0568!3d53.2804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485b96f7dde7d5b5%3A0x0!2sOld+Dublin+Rd%2C+Galway!5e0!3m2!1sen!2sie!4v1620000000000!5m2!1sen!2sie" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="K9 Design location on Google Maps"></iframe>
+        <iframe src="https://www.google.com/maps?q=K9+Design+Dog+Grooming%2C+Unit+2A%2C+Old+Dublin+Road%2C+Galway%2C+H91+W5KC%2C+Ireland&amp;output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="K9 Design location on Google Maps"></iframe>
         <div class="map-overlay-card">
             <h3>📍 Find Us</h3>
-            <p>Unit 2A, Old Dublin Road<br>Galway,  H91 W5KC</p>
+            <p>Unit 2A, Old Dublin Road<br>Galway,  H91 XD99</p>
             <p>Tues–Fri: 9am–5pm<br>Saturday: 9am–4pm</p>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=K9+Design+Dog+Grooming%2C+Unit+2A%2C+Old+Dublin+Rd%2C+Galway%2C+Ireland" target="_blank" rel="noopener">🗺️ Get Directions</a>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=K9+Design+Dog+Grooming%2C+Unit+2A%2C+Old+Dublin+Road%2C+Galway%2C+H91+W5KC%2C+Ireland" target="_blank" rel="noopener">🗺️ Get Directions</a>
         </div>
     </div>
 </section>
@@ -582,7 +632,7 @@
     <div class="container contact-bar-inner">
         <div class="contact-bar-item">
             <span class="contact-bar-icon">📍</span>
-            <span>Unit 2A, Old Dublin Road, Galway, H91 W5KC</span>
+            <span>Unit 2A, Old Dublin Road, Galway, H91 XD99</span>
         </div>
         <div class="contact-bar-item">
             <span class="contact-bar-icon">📞</span>
@@ -635,7 +685,7 @@
             <a href="tel:0852504673">📞 (085) 250-4673</a>
             <a href="mailto:k9.design.grooming@gmail.com">✉️ k9.design.grooming@gmail.com</a>
             <a href="https://wa.me/353852504673" target="_blank" rel="noopener">💬 WhatsApp Us</a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Old+Dublin+Road,+Galway,+Ireland" target="_blank" rel="noopener">📍 Get Directions</a>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=K9+Design+Dog+Grooming%2C+Unit+2A%2C+Old+Dublin+Road%2C+Galway%2C+H91+W5KC%2C+Ireland" target="_blank" rel="noopener">📍 Get Directions</a>
         </div>
         <div class="footer-links">
             <h4>Opening Hours</h4>
